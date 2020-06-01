@@ -28,6 +28,10 @@ public class Conector implements Runnable {
 				while(in.hasNextLine()) {
 					out.println(in.nextLine());
 				}
+				
+				cliente.close();
+				in.close();
+				out.close();
 			}catch(UnknownHostException e) {
 				System.err.println("\nServidor não encontrado");
 			}catch(IOException e) {
