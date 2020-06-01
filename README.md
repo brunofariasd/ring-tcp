@@ -12,7 +12,7 @@
 
 > Porta que atuará como cliente (porta do processo que você irá se conectar)
 
-> OBS: A intenção é você crie as conexões de forma circular (topology ring)
+> OBS: A intenção é que você crie as conexões de forma circular (topology ring)
 
 3. Agora é so fazer os envios de mensagens
 
