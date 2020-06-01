@@ -36,9 +36,14 @@ public class Processo {
 				while(in.hasNextLine()) {
 					System.out.println(">> : " + in.nextLine());
 				}
+				
+				in.close();
 			}catch(IOException e) {
 				System.err.println("\nErro ao receber mensagem");
 			}
+			
+			server.close();
+			conexao.close();
 		}catch(IOException e){
 			System.err.println("\nServidor não conectado");
 		}
