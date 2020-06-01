@@ -25,7 +25,7 @@ public class Processo {
 			//É necessário que ele se conecte com o processo destinatário de forma paralela
 			//	para evitar empasse.
 			ExecutorService executorService = Executors.newCachedThreadPool();
-			executorService.execute(new Conector(cPort));
+			executorService.execute(new Conector(host, cPort));
 			executorService.shutdown();
 
 			//A conexao é de apenas um processo remetente
