@@ -9,7 +9,8 @@ public class Conector implements Runnable {
 	private String host;
 	private int port;
 
-	public Conector(int port) {
+	public Conector(String host, int port) {
+		this.host = host;
 		this.port = port;
 	}
 
