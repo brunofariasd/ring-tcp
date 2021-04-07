@@ -19,27 +19,32 @@ public class Conector implements Runnable {
 		//	O tempo de constância é dada em Thread.sleep().
 		while (true) {
 			try {
-				Socket cliente = new Socket(host, port);		
-				System.out.println("\nConectado ao servidor");
+				Socket servidor = new Socket(host, port);
+
+				Processo processo = new Processo();
+				processo.servidor = servidor;
+
+				System.out.println("\n(Cliente)Conectado ao servidor");
 
 				Scanner in = new Scanner(System.in);
-				PrintStream out = new PrintStream(cliente.getOutputStream());
+				PrintStream out = new PrintStream(servidor.getOutputStream());
+
 
 				while(in.hasNextLine()) {
-					out.println(in.nextLine());
+					out.println("P"+processo.numero+":P"+processo.numero+":"+in.nextLine());
 				}
 				
-				cliente.close();
+				servidor.close();
 				in.close();
 				out.close();
 			}catch(UnknownHostException e) {
-				System.err.println("\nServidor não encontrado");
+				System.err.println("\n(Cliente)Servidor não encontrado");
 			}catch(IOException e) {
-				System.err.println("Tentando conectar ao servidor...");
+				System.err.println("(Cliente)Tentando conectar ao servidor...");
 				try {
 					Thread.sleep(4000);
 				}catch(InterruptedException f) {
-					System.err.println("\nErro inesperado de thread");
+					System.err.println("\n(Cliente)Erro inesperado de thread");
 				}
 			}
 		}
